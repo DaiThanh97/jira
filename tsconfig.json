@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./dist",
+    "incremental": true,
+    "skipLibCheck": true,
+    "target": "ES2022",
+    "lib": ["ESNext"],
+    "moduleResolution": "Node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+    "resolveJsonModule": true,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "inlineSources": true,
+    "sourceRoot": "/",
+    "typeRoots": ["src/typings/*.d.ts", "node_modules/@types"]
+  },
+  "include": ["src/**/*.ts", "./*.ts"],
+  "exclude": ["node_modules", "*.js", "*.md"]
+}
