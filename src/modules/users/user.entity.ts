@@ -2,10 +2,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 import { compareValue } from "../../utils/bcrypt";
+import { OrganizationUserEntity } from "../organizations-users/organization-user.entity";
 
 @Entity({ name: "users" })
 export class UserEntity {
@@ -26,6 +28,12 @@ export class UserEntity {
 
   @UpdateDateColumn({ type: "timestamp" })
   updated_at: Date;
+
+  @OneToMany(
+    () => OrganizationUserEntity,
+    (organizationUser) => organizationUser.user
+  )
+  organizationUsers: OrganizationUserEntity[];
 
   async checkPassword(password: string): Promise<boolean> {
     return compareValue(password, this.password_hash);
