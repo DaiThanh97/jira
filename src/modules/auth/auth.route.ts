@@ -7,6 +7,6 @@ const authController = Container.get(AuthController);
 
 // /api/v1/auth/register
 authRoutes.post("/register", authController.register);
-authRoutes.post("/login", authController.register);
+authRoutes.post("/login", authController.login);
 
 export default authRoutes;
