@@ -8,6 +8,7 @@ import {
 } from "typeorm";
 import { compareValue } from "../../utils/bcrypt";
 import { OrganizationUserEntity } from "../organizations-users/organization-user.entity";
+import { ProjectEntity } from "../projects/project.entity";
 
 @Entity({ name: "users" })
 export class UserEntity {
@@ -34,6 +35,9 @@ export class UserEntity {
     (organizationUser) => organizationUser.user
   )
   organizationUsers: OrganizationUserEntity[];
+
+  @OneToMany(() => ProjectEntity, (project) => project.createdBy)
+  createdProjects: ProjectEntity[];
 
   async checkPassword(password: string): Promise<boolean> {
     return compareValue(password, this.password_hash);
