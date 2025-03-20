@@ -9,6 +9,7 @@ import {
 import { compareValue } from "../../utils/bcrypt";
 import { OrganizationUserEntity } from "../organizations-users/organization-user.entity";
 import { ProjectEntity } from "../projects/project.entity";
+import { ProjectUserEntity } from "../projects-users/project-user.entity";
 
 @Entity({ name: "users" })
 export class UserEntity {
@@ -38,6 +39,9 @@ export class UserEntity {
 
   @OneToMany(() => ProjectEntity, (project) => project.createdBy)
   createdProjects: ProjectEntity[];
+
+  @OneToMany(() => ProjectUserEntity, (projectUser) => projectUser.user)
+  projectUsers: ProjectUserEntity[];
 
   async checkPassword(password: string): Promise<boolean> {
     return compareValue(password, this.password_hash);

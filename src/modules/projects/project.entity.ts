@@ -3,11 +3,13 @@ import {
   CreateDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 import { OrganizationEntity } from "../organizations/organization.entity";
 import { UserEntity } from "../users/user.entity";
+import { ProjectUserEntity } from "../projects-users/project-user.entity";
 
 @Entity({ name: "projects" })
 export class ProjectEntity {
@@ -33,6 +35,9 @@ export class ProjectEntity {
     eager: true,
   })
   createdBy: UserEntity;
+
+  @OneToMany(() => ProjectUserEntity, (projectUser) => projectUser.project)
+  projectUsers: ProjectUserEntity[];
 
   toJSON() {
     const { createdBy, ...rest } = this;
