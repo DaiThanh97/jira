@@ -10,6 +10,7 @@ import {
 import { OrganizationEntity } from "../organizations/organization.entity";
 import { UserEntity } from "../users/user.entity";
 import { ProjectUserEntity } from "../projects-users/project-user.entity";
+import { TaskEntity } from "../tasks/task.entity";
 
 @Entity({ name: "projects" })
 export class ProjectEntity {
@@ -38,6 +39,9 @@ export class ProjectEntity {
 
   @OneToMany(() => ProjectUserEntity, (projectUser) => projectUser.project)
   projectUsers: ProjectUserEntity[];
+
+  @OneToMany(() => TaskEntity, (task) => task.project)
+  tasks: TaskEntity[];
 
   toJSON() {
     const { createdBy, ...rest } = this;
