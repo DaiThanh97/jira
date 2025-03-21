@@ -13,6 +13,23 @@ services:
       - 5432:5432
     networks:
       - app-tier
+  app_jira:
+    build:
+      dockerfile: Dockerfile
+    image: app_jira
+    container_name: app_jira
+    env_file:
+      - ./.env
+    ports:
+      - "4000:4000"
+    networks:
+      - app-tier
+    environment:
+      DB_HOST: app_postgres
+      DB_PORT: 5432
+    restart: always
+    depends_on:
+      - app_postgres
 
 networks:
   app-tier:
