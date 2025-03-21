@@ -17,8 +17,7 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "inlineSources": true,
-    "sourceRoot": "/",
-    "typeRoots": ["src/typings/*.d.ts", "node_modules/@types"]
+    "sourceRoot": "/"
   },
   "include": ["src/**/*.ts", "./*.ts", "jest.config.js"],
   "exclude": ["node_modules", "*.js", "*.md"]

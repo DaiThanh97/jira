@@ -31,6 +31,59 @@ This project is a Jira-like application that provides APIs for managing software
 - Docker & Docker Compose - Containerization
 - Makefile - Simplified commands
 
+## Architecture Patterns
+
+This project implements several architectural patterns to ensure maintainability, testability, and scalability:
+
+### Modular Pattern
+
+The codebase is organized into feature modules (auth, organizations, projects, tasks, etc.), each containing its own:
+
+- Controllers: Handle HTTP requests and responses
+- Services: Implement business logic
+- Repositories: Manage data access
+- Routes: Define API endpoints
+- Entities: Define data models
+- DTOs: Define data transfer objects
+
+This modular approach:
+
+- Keeps related code together
+- Makes the codebase easier to navigate
+- Enables independent development of features
+- Simplifies maintenance and testing
+
+### Dependency Injection Pattern
+
+Using the TypeDI library, dependencies are injected rather than hardcoded:
+
+- Services are injected into controllers
+- Repositories are injected into services
+- Configuration is injected where needed
+
+Benefits include:
+
+- Loose coupling between components
+- Easier unit testing through mocking
+- More flexible code that's easy to extend
+- Cleaner implementation of the Single Responsibility Principle
+
+### Repository Pattern
+
+Data access is abstracted through repositories:
+
+- Each entity has its own repository
+- Repositories handle all database operations
+- Business logic is kept separate from data access
+- TypeORM is used to implement the repositories
+
+This pattern provides:
+
+- A clean separation between business logic and data access
+- Consistent data access methods
+- The ability to switch database technologies with minimal impact
+- Simplified testing with mock repositories
+
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
@@ -47,8 +100,8 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/yourusername/jira-clone.git
-   cd jira-clone
+   git clone https://github.com/DaiThanh97/jira.git
+   cd jira
    ```
 
 2. Install dependencies:
@@ -78,22 +131,9 @@ Before you begin, ensure you have the following installed:
 
 ### Running the Application
 
-#### Using Docker (Recommended)
-
-1. Start the application and database:
-
-   ```
-   docker-compose up -d
-   ```
-
-   This will start both the PostgreSQL database and the Node.js application.
-
-2. The API will be available at: http://localhost:4000/api/v1
-3. Swagger API documentation: http://localhost:4000/api/v1/api-docs
-
 #### Development Mode
 
-1. Start only the PostgreSQL database:
+1. Start the PostgreSQL database:
 
    ```
    docker-compose up app_postgres -d
@@ -107,18 +147,8 @@ Before you begin, ensure you have the following installed:
 
    This starts the application with nodemon for automatic reloading on code changes.
 
-### Database Migrations
-
-- Run database migrations:
-
-  ```
-  npm run migration:up
-  ```
-
-- Revert migrations:
-  ```
-  npm run migration:down
-  ```
+3. The API will be available at: http://localhost:4000/api/v1
+4. Swagger API documentation: http://localhost:4000/api/v1/api-docs
 
 ## API Endpoints
 
@@ -188,4 +218,4 @@ npm start
 
 ## License
 
-MIT
+THANH NGUYEN
