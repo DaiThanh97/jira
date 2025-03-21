@@ -60,8 +60,6 @@ export class ProjectService {
   async updateProject(payload: UpdateProjectPayload) {
     const project = await this.getProject(payload.id);
 
-    console.log("PROJECTT: ", project);
-
     if (payload.createdBy !== project.createdBy.id) {
       throw new BadRequestException("Not allow to update this project");
     }
