@@ -29,7 +29,6 @@ This project is a Jira-like application that provides APIs for managing software
 ### DevOps
 
 - Docker & Docker Compose - Containerization
-- Makefile - Simplified commands
 
 ## Architecture Patterns
 
