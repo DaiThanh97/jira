@@ -20,6 +20,6 @@
     "sourceRoot": "/",
     "typeRoots": ["src/typings/*.d.ts", "node_modules/@types"]
   },
-  "include": ["src/**/*.ts", "./*.ts"],
+  "include": ["src/**/*.ts", "./*.ts", "jest.config.js"],
   "exclude": ["node_modules", "*.js", "*.md"]
 }
