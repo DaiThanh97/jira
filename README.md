@@ -169,6 +169,8 @@ Before you begin, ensure you have the following installed:
 3. The API will be available at: http://localhost:4000/api/v1
 4. Swagger API documentation: http://localhost:4000/api/v1/api-docs
 
+<img src="./imgs/swagger.png"/>
+
 ## Testing
 
 Run the test suite:
