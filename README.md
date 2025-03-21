@@ -13,6 +13,26 @@ This project is a Jira-like application that provides APIs for managing software
 - **Users**: User management and role-based permissions
 - **Comments**: Add comments to tasks for better collaboration
 
+## API Endpoints
+
+The API includes the following main endpoints:
+
+- **Authentication**: `/api/v1/auth` (register, login)
+- **Organizations**: `/api/v1/organizations` (CRUD operations)
+- **Organization Users**: `/api/v1/organizations-users` (manage users in organizations)
+- **Projects**: `/api/v1/projects` (CRUD operations)
+- **Project Users**: `/api/v1/projects-users` (manage users in projects)
+- **Tasks**: `/api/v1/tasks` (CRUD operations)
+- **Comments**: `/api/v1/comments` (CRUD operations)
+
+For detailed API documentation, visit the Swagger UI at http://localhost:4000/api/v1/api-docs when the application is running.
+
+## Entity Relational Diagram
+
+- [Documentation with details plan mentioned in the video](https://www.notion.so/Subscript-technical-test-17665834810d8088a145c3e63757a35f)
+
+<img src='./imgs/erd.png'>
+
 ## Tech Stack
 
 ### Backend
@@ -148,20 +168,6 @@ Before you begin, ensure you have the following installed:
 
 3. The API will be available at: http://localhost:4000/api/v1
 4. Swagger API documentation: http://localhost:4000/api/v1/api-docs
-
-## API Endpoints
-
-The API includes the following main endpoints:
-
-- **Authentication**: `/api/v1/auth` (register, login)
-- **Organizations**: `/api/v1/organizations` (CRUD operations)
-- **Organization Users**: `/api/v1/organizations-users` (manage users in organizations)
-- **Projects**: `/api/v1/projects` (CRUD operations)
-- **Project Users**: `/api/v1/projects-users` (manage users in projects)
-- **Tasks**: `/api/v1/tasks` (CRUD operations)
-- **Comments**: `/api/v1/comments` (CRUD operations)
-
-For detailed API documentation, visit the Swagger UI at http://localhost:4000/api/v1/api-docs when the application is running.
 
 ## Testing
 
