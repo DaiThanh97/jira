@@ -11,6 +11,7 @@ import { OrganizationUserEntity } from "../organizations-users/organization-user
 import { ProjectEntity } from "../projects/project.entity";
 import { ProjectUserEntity } from "../projects-users/project-user.entity";
 import { TaskEntity } from "../tasks/task.entity";
+import { CommentEntity } from "../comments/comment.entity";
 
 @Entity({ name: "users" })
 export class UserEntity {
@@ -49,6 +50,9 @@ export class UserEntity {
 
   @OneToMany(() => TaskEntity, (task) => task.assignee)
   assignedTasks: TaskEntity[];
+
+  @OneToMany(() => CommentEntity, (comment) => comment.user)
+  comments: CommentEntity[];
 
   async checkPassword(password: string): Promise<boolean> {
     return compareValue(password, this.password_hash);

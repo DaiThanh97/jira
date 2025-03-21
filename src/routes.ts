@@ -6,6 +6,7 @@ import organizationUserRoutes from "./modules/organizations-users/organization-u
 import projectRoutes from "./modules/projects/project.route";
 import projectUserRoutes from "./modules/projects-users/project-user.route";
 import taskRoutes from "./modules/tasks/task.route";
+import commentRoutes from "./modules/comments/comment.route";
 
 enum APP_ROUTE {
   AUTH = "/auth",
@@ -14,6 +15,7 @@ enum APP_ROUTE {
   PROJECTS = "/projects",
   PROJECTS_USERS = "/projects-users",
   TASKS = "/tasks",
+  COMMENTS = "/comments",
 }
 
 const allRoutes = Router();
@@ -28,5 +30,6 @@ allRoutes.use(
 allRoutes.use(APP_ROUTE.PROJECTS, isAuthenticated, projectRoutes);
 allRoutes.use(APP_ROUTE.PROJECTS_USERS, isAuthenticated, projectUserRoutes);
 allRoutes.use(APP_ROUTE.TASKS, isAuthenticated, taskRoutes);
+allRoutes.use(APP_ROUTE.COMMENTS, isAuthenticated, commentRoutes);
 
 export default allRoutes;
