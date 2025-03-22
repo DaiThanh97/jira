@@ -27,6 +27,8 @@ The API includes the following main endpoints:
 
 For detailed API documentation, visit the Swagger UI at http://localhost:4000/api/v1/api-docs when the application is running.
 
+Also if you prefer Postman, I also included `jira-postman.json` for Postman.
+
 ## Entity Relational Diagram
 
 - [Documentation with details plan mentioned in the video](https://www.notion.so/Subscript-technical-test-17665834810d8088a145c3e63757a35f)
